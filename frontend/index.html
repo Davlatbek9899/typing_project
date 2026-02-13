@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typing Practice</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo-dot"></span>
+      <span class="brand-title">Typing</span>
+    </div>
+        <div class="topbar-actions">
+          <div class="stats">
+            <span class="pill" id="userFinishedPill">Finished: 0</span>
+          </div>
+
+          <div class="dropdown">
+            <button id="lengthBtn" class="btn ghost" type="button">Letter length ▾</button>
+            <div id="lengthMenu" class="menu hidden">
+              <button class="menu-item" data-length="short">Kam</button>
+              <button class="menu-item" data-length="medium">O'rtacha</button>
+              <button class="menu-item" data-length="long">Uzunroq</button>
+              <button class="menu-item" data-length="xlong">Juda uzun</button>
+            </div>
+          </div>
+
+          <button id="newTextBtn" class="btn ghost">New text</button>
+          <button id="swapBtn" class="btn primary" title="Panel joyini almashtirish">⇄ Swap</button>
+        </div>
+
+  </header>
+
+  <main class="page">
+    <section class="panels" id="panels">
+      <!-- LEFT: SOURCE TEXT -->
+      <div class="panel card" id="sourcePanel">
+        <div class="panel-head">
+          <h2 class="panel-title">Text</h2>
+          <div class="panel-meta">
+            <span class="pill" id="textLenPill">0 chars</span>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <div id="sourceText" class="source-text" aria-label="Random text"></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: TYPING -->
+      <div class="panel card" id="typingPanel">
+        <div class="panel-head">
+          <h2 class="panel-title">Typing</h2>
+          <div class="panel-meta">
+            <span class="pill" id="progressPill">0%</span>
+          </div>
+        </div>
+
+        <div class="panel-body">
+          <!-- overlay: colored compare output -->
+          <div class="typing-wrap">
+            <div id="compareView" class="compare-view" aria-hidden="true"></div>
+            <textarea
+              id="typingInput"
+              class="typing-input"
+              placeholder="Bu yerga yozing..."
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <div class="hint">
+            Xato so‘zlar <span class="hint-bad">qizil</span> bo‘ladi. To‘g‘rilasangiz, normal holatga qaytadi.
+          </div>
+            <button id="doneBtn" class="done-btn hidden" type="button">✅ Tayyor</button>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="keyboard-area">
+      <!-- ====== KEYBOARD (SEN BERGAN HTML) ====== -->
+      <div class="keyboard" id="keyboard">
+        <div class="row">
+          <div class="key function-key">esc</div>
+          <div class="key function-key">F1</div>
+          <div class="key function-key">F2</div>
+          <div class="key function-key">F3</div>
+          <div class="key function-key">F4</div>
+          <div class="key function-key">F5</div>
+          <div class="key function-key">F6</div>
+          <div class="key function-key">F7</div>
+          <div class="key function-key">F8</div>
+          <div class="key function-key">F9</div>
+          <div class="key function-key">F10</div>
+          <div class="key function-key">F11</div>
+          <div class="key function-key">F12</div>
+          <div class="key eject-key">⏏</div>
+        </div>
+
+        <div class="row">
+          <div class="key">`</div>
+          <div class="key">1</div>
+          <div class="key">2</div>
+          <div class="key">3</div>
+          <div class="key">4</div>
+          <div class="key">5</div>
+          <div class="key">6</div>
+          <div class="key">7</div>
+          <div class="key">8</div>
+          <div class="key">9</div>
+          <div class="key">0</div>
+          <div class="key">-</div>
+          <div class="key">=</div>
+          <div class="key delete-key">delete</div>
+        </div>
+
+        <div class="row">
+          <div class="key tab-key">tab</div>
+          <div class="key">Q</div>
+          <div class="key">W</div>
+          <div class="key">E</div>
+          <div class="key">R</div>
+          <div class="key">T</div>
+          <div class="key">Y</div>
+          <div class="key">U</div>
+          <div class="key">I</div>
+          <div class="key">O</div>
+          <div class="key">P</div>
+          <div class="key">[</div>
+          <div class="key">]</div>
+          <div class="key backslash-key">\</div>
+        </div>
+
+        <div class="row">
+          <div class="key caps-lock-key">caps lock</div>
+          <div class="key">A</div>
+          <div class="key">S</div>
+          <div class="key">D</div>
+          <div class="key">F</div>
+          <div class="key">G</div>
+          <div class="key">H</div>
+          <div class="key">J</div>
+          <div class="key">K</div>
+          <div class="key">L</div>
+          <div class="key">;</div>
+          <div class="key">'</div>
+          <div class="key return-key">return</div>
+        </div>
+
+        <div class="row">
+          <div class="key shift-key">shift</div>
+          <div class="key">Z</div>
+          <div class="key">X</div>
+          <div class="key">C</div>
+          <div class="key">V</div>
+          <div class="key">B</div>
+          <div class="key">N</div>
+          <div class="key">M</div>
+          <div class="key">,</div>
+          <div class="key">.</div>
+          <div class="key">/</div>
+          <div class="key shift-key">shift</div>
+        </div>
+
+        <div class="row">
+          <div class="key">fn</div>
+          <div class="key ctrl-key">ctrl</div>
+          <div class="key alt-key">⌥</div>
+          <div class="key command-key">⌘</div>
+          <div class="key space-key"></div>
+          <div class="key command-key">⌘</div>
+          <div class="key alt-key">⌥</div>
+          <div class="key arrow-key">◀</div>
+          <div class="key arrow-key">▼</div>
+          <div class="key arrow-key">▲</div>
+          <div class="key arrow-key">▶</div>
+        </div>
+      </div>
+      <!-- ====== /KEYBOARD ====== -->
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstname": "Davlatbek",
+            "lastname": "Arslonov",
+            "email": "arslonovdavlatbek75@gmail.com",
+            "hashed_password": "$2b$12$ekxBk.M2cTNrw3cQZS2vUO171Kx52ZTC9fNZwffyixNcBkPEO0uS.",
+            "completed_texts_count": 0,
+            "is_verified": true,
+            "email_code": null
+        },
+        {
+            "id": 2,
+            "firstname": "Davlatbek",
+            "lastname": "Arslonov",
+            "email": "arslonovdavlat9@gmail.com",
+            "hashed_password": "$2b$12$sztsjWIXFAR.WPWkj949F.NHOYHstzE74mlaS7Muh38KHmnm2XzFi",
+            "completed_texts_count": 2,
+            "email_code": null,
+            "is_verified": true
+        }
+    ],
+    "user_id": 2
+}
