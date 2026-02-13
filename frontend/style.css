@@ -729,3 +729,478 @@ body{
   transform: translateY(-4px);
   transition: opacity .22s ease, transform .22s ease;
 }
+
+/* ============================================
+   THEME SWITCHER STYLES
+   ============================================ */
+
+/* Theme button styling */
+#themeBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.1s ease;
+}
+
+#themeBtn svg {
+  transition: transform 0.3s ease;
+}
+
+#themeBtn:hover svg {
+  transform: rotate(20deg);
+}
+
+/* ============================================
+   THEME 2: FLOWERS (✅ SHAFFOFROQ)
+   ============================================ */
+
+body.theme-flowers {
+  background: url('flowers-bg.jpg') center/cover no-repeat fixed;
+}
+
+body.theme-flowers::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Flowers - shaffof cardlar */
+body.theme-flowers .card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Flowers - shaffof klaviatura */
+body.theme-flowers .keyboard {
+  background: rgba(211, 211, 211, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-flowers .key {
+  background: rgba(240, 240, 240, 0.50);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   THEME 3: MOUNTAIN LAKE (✅ FON KO'RINADI)
+   ============================================ */
+
+body.theme-mountain {
+  background: url('mountain-bg.jpeg') center/cover no-repeat fixed !important;
+}
+
+body.theme-mountain::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+/* Mountain - shaffof cardlar (YANGI QO'SHISH) */
+body.theme-mountain .card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Mountain - shaffof klaviatura (YANGI QO'SHISH) */
+body.theme-mountain .keyboard {
+  background: rgba(211, 211, 211, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-mountain .key {
+  background: rgba(240, 240, 240, 0.50);
+  backdrop-filter: blur(5px);
+}
+/* ============================================
+   THEME 4: ALPINE VILLAGE (✅ SHAFFOFROQ)
+   ============================================ */
+
+body.theme-alpine {
+  background: url('alpine-bg.jpg') center/cover no-repeat fixed;
+}
+
+body.theme-alpine::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Alpine - shaffof cardlar */
+body.theme-alpine .card {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Alpine - shaffof klaviatura */
+body.theme-alpine .keyboard {
+  background: rgba(211, 211, 211, 0.35);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-alpine .key {
+  background: rgba(240, 240, 240, 0.50);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   THEME 5: DARK MODE (✅ QORA GRADIENT)
+   ============================================ */
+
+body.theme-dark {
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%) !important;
+  color: #e0e0e0;
+}
+
+/* Dark mode - topbar */
+body.theme-dark .topbar {
+  background: rgba(15, 15, 30, 0.95);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .brand-title {
+  color: #fff;
+}
+
+body.theme-dark .logo-dot {
+  background: #667eea;
+}
+
+/* Dark mode - buttons */
+body.theme-dark .btn {
+  color: #e0e0e0;
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body.theme-dark .btn.primary {
+  background: #667eea;
+  color: #fff;
+  border-color: #667eea;
+}
+
+body.theme-dark .btn.ghost:hover {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+/* Dark mode - pills */
+body.theme-dark .pill {
+  background: rgba(102, 126, 234, 0.2);
+  color: #a5b4fc;
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* Dark mode - dropdown menu */
+body.theme-dark .menu {
+  background: rgba(15, 15, 30, 0.98);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .menu-item {
+  color: #e0e0e0;
+}
+
+body.theme-dark .menu-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Dark mode - panels/cards */
+body.theme-dark .card,
+body.theme-dark .panel {
+  background: rgba(20, 20, 35, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .panel-title {
+  color: #fff;
+}
+
+body.theme-dark .panel-head {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+}
+
+/* Dark mode - source text */
+body.theme-dark .source-text {
+  color: #e0e0e0;
+}
+
+/* Dark mode - typing input */
+body.theme-dark .typing-input {
+  background: rgba(30, 30, 45, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: transparent;
+  caret-color: #e0e0e0;
+}
+
+body.theme-dark .typing-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+body.theme-dark .typing-input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Dark mode - compare view */
+body.theme-dark .compare-view {
+  background: rgba(30, 30, 45, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .w-ok {
+  color: #10b981;
+}
+
+body.theme-dark .w-bad {
+  color: #ef4444;
+}
+
+/* Dark mode - hint */
+body.theme-dark .hint {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+body.theme-dark .hint-bad {
+  color: #ef4444;
+}
+
+/* Dark mode - done button */
+body.theme-dark .done-btn {
+  background: #10b981;
+  color: #fff;
+  border-color: #10b981;
+}
+
+body.theme-dark .done-btn:hover {
+  background: #059669;
+}
+
+/* Dark mode - keyboard */
+body.theme-dark .keyboard {
+  background: rgba(20, 20, 35, 0.95);
+  background-image: linear-gradient(to bottom, rgba(20, 20, 35, 0.95), rgba(15, 15, 30, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.theme-dark .key {
+  background: rgba(40, 40, 60, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.theme-dark .key:hover {
+  background: rgba(60, 60, 80, 0.9);
+}
+
+body.theme-dark .key.is-pressed {
+  background: #667eea !important;
+  color: #fff;
+  border-color: #667eea;
+}
+
+/* ============================================
+   THEME 6: ANIME PINK (Pushti qiz)
+   ============================================ */
+
+body.theme-anime-pink {
+  background: url('AGUYVOHzr0s.jpg') center/cover no-repeat fixed;
+}
+
+body.theme-anime-pink::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Anime Pink - shaffof cardlar */
+body.theme-anime-pink .card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Anime Pink - shaffof klaviatura */
+body.theme-anime-pink .keyboard {
+  background: rgba(211, 211, 211, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-anime-pink .key {
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   THEME 7: ANIME BLUE (Ko'k kapalak qiz)
+   ============================================ */
+
+body.theme-anime-blue {
+  background: url('anime-girl-6094x4096-10519.jpg') center/cover no-repeat fixed;
+}
+
+body.theme-anime-blue::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Anime Blue - shaffof cardlar */
+body.theme-anime-blue .card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Anime Blue - shaffof klaviatura */
+body.theme-anime-blue .keyboard {
+  background: rgba(211, 211, 211, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-anime-blue .key {
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   THEME 8: ANIME OCEAN (Pushti-ko'k osmon)
+   ============================================ */
+
+body.theme-anime-ocean {
+  background: url('image_2023-12-06_14-52-26.png') center/cover no-repeat fixed;
+}
+
+body.theme-anime-ocean::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Anime Ocean - shaffof cardlar */
+body.theme-anime-ocean .card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Anime Ocean - shaffof klaviatura */
+body.theme-anime-ocean .keyboard {
+  background: rgba(211, 211, 211, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-anime-ocean .key {
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   THEME 9: ANIME FOREST (O'rmon qiz)
+   ============================================ */
+
+body.theme-anime-forest {
+  background: url('image_2024-03-25_14-31-19.png') center/cover no-repeat fixed;
+}
+
+body.theme-anime-forest::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.00);
+  backdrop-filter: none;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Anime Forest - shaffof cardlar */
+body.theme-anime-forest .card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Anime Forest - shaffof klaviatura */
+body.theme-anime-forest .keyboard {
+  background: rgba(211, 211, 211, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+body.theme-anime-forest .key {
+  background: rgba(255, 255, 255, 0.40);
+  backdrop-filter: blur(5px);
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+body {
+  transition: background 0.5s ease, color 0.3s ease;
+}
+
+.topbar,
+.card,
+.panel,
+.btn,
+.pill,
+.menu,
+.typing-input,
+.key {
+  transition: all 0.3s ease;
+}

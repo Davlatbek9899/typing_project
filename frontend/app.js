@@ -19,6 +19,65 @@ const lengthMenu = document.getElementById("lengthMenu");
 const userFinishedPill = document.getElementById("userFinishedPill");
 const doneBtn = document.getElementById("doneBtn");
 
+// 🎨 THEME SWITCHER DOM
+const themeBtn = document.getElementById("themeBtn");
+const themeName = document.getElementById("themeName");
+
+// ====== THEME SWITCHER ======
+const themes = [
+  { name: 'Default', class: '' },
+  { name: 'Flowers', class: 'theme-flowers' },
+  { name: 'Mountain', class: 'theme-mountain' },
+  { name: 'Alpine', class: 'theme-alpine' },
+  { name: 'Dark', class: 'theme-dark' },
+  { name: 'Anime Pink', class: 'theme-anime-pink' },
+  { name: 'Anime Blue', class: 'theme-anime-blue' },
+  { name: 'Anime Ocean', class: 'theme-anime-ocean' },
+  { name: 'Anime Forest', class: 'theme-anime-forest' }
+];
+
+let currentThemeIndex = 0;
+
+// Load saved theme from localStorage
+const savedTheme = localStorage.getItem('selectedTheme');
+if (savedTheme) {
+  currentThemeIndex = parseInt(savedTheme) || 0;
+  applyTheme(currentThemeIndex);
+}
+
+function applyTheme(index) {
+  const body = document.body;
+  const theme = themes[index];
+  
+  // Remove all theme classes
+  themes.forEach(t => {
+    if (t.class) body.classList.remove(t.class);
+  });
+  
+  // Add new theme class
+  if (theme.class) {
+    body.classList.add(theme.class);
+  }
+  
+  // Update button text
+  themeName.textContent = theme.name;
+}
+
+// Theme button click
+themeBtn.addEventListener('click', () => {
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  applyTheme(currentThemeIndex);
+  
+  // Save to localStorage
+  localStorage.setItem('selectedTheme', currentThemeIndex);
+  
+  // Add animation
+  themeBtn.style.transform = 'scale(0.95)';
+  setTimeout(() => {
+    themeBtn.style.transform = 'scale(1)';
+  }, 100);
+});
+
 // ====== AUTH HELPERS ======
 function getToken() {
   return localStorage.getItem("access_token");
