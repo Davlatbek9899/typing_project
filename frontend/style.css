@@ -20,7 +20,10 @@
 }
 
 *{ box-sizing: border-box; }
-html, body{ height: 100%; }
+html, body{ 
+  height: 100%; 
+  overflow: hidden; /* No scroll! */
+}
 
 body{
   margin: 0;
@@ -31,6 +34,8 @@ body{
     radial-gradient(700px 500px at 55% 95%, rgba(34,197,94,0.10), transparent 55%),
     var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
 }
 
 /* =========================================================
@@ -102,6 +107,10 @@ body{
   max-width: 1200px;
   margin: 0 auto;
   padding: 18px 18px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .panels{
@@ -226,9 +235,10 @@ body{
 
 /* Keyboard area */
 .keyboard-area{
-  margin-top: 14px;
+  margin-top: 0.5rem;
   display:flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 @media (max-width: 980px){
@@ -241,9 +251,9 @@ body{
 .keyboard {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 16px;
-  padding-bottom: 19px;
+  gap: 4px;
+  padding: 12px;
+  padding-bottom: 14px;
   border-radius: 16px;
   background-color: #d3d3d3;
   background-image: linear-gradient(to bottom, #d3d3d3, #c5c5c5);
@@ -253,6 +263,7 @@ body{
     rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   width: 600px;
   user-select: none;
+  transform: scale(0.9);
 }
 
 .row { display: flex; gap: 3px; }
@@ -267,8 +278,8 @@ body{
     rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
   min-width: 35px;
   text-align: center;
-  padding: 8px 5px;
-  font-size: 10px;
+  padding: 6px 4px;
+  font-size: 9px;
   color: #333;
   cursor: pointer;
   transition: box-shadow 0.2s, background-color 0.2s, transform 0.1s;
@@ -1203,4 +1214,345 @@ body {
 .typing-input,
 .key {
   transition: all 0.3s ease;
+}
+
+/* ========================================
+   🎯 FLOW MODE STYLES (MonkeyType)
+   ======================================== */
+
+.flow-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  height: calc(100vh - 180px); /* Fixed height - no scroll */
+  overflow: hidden;
+}
+
+.flow-mode.hidden {
+  display: none;
+}
+
+/* Timer selector */
+.flow-config {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timer-selector {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.25rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.timer-btn {
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: rgba(15, 23, 42, 0.6);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.timer-btn:hover {
+  color: rgba(15, 23, 42, 0.9);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.timer-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Live stats - компактнее */
+.flow-stats {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Words container - больше и без scroll */
+.flow-words-container {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  height: 240px; /* 4 qator uchun */
+  flex-shrink: 0;
+}
+
+.flow-words {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 2.2rem;
+  color: var(--muted);
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  height: 100%;
+  overflow: hidden;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flow-word {
+  display: inline-flex;
+  position: relative;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.flow-word.correct {
+  color: var(--good);
+}
+
+.flow-word.incorrect {
+  color: var(--bad);
+}
+
+.flow-word.active {
+  color: var(--text);
+  position: relative;
+}
+
+.flow-word .letter {
+  position: relative;
+  display: inline-block;
+  transition: color 0.15s ease;
+}
+
+.flow-word.active .letter.correct {
+  color: var(--good);
+}
+
+.flow-word.active .letter.incorrect {
+  color: var(--bad);
+}
+
+.flow-word.active .letter.extra {
+  color: var(--bad);
+  opacity: 0.7;
+}
+
+/* Cursor - boshida ko'rsatish */
+.flow-word.active .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.6em;
+  background: var(--accent);
+  animation: blink 1s infinite;
+  margin-left: 0;
+  margin-right: 2px;
+  vertical-align: text-bottom;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Hidden input */
+.flow-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Result screen - INSIDE the words card */
+.flow-result {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  animation: slideUp 0.4s ease;
+  z-index: 10;
+}
+
+.flow-result.hidden {
+  display: none;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.result-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-stat-big {
+  text-align: center;
+}
+
+.result-stat-big .result-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.result-stat-big .result-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.result-details {
+  background: rgba(99, 102, 241, 0.05);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.result-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.detail-label {
+  color: var(--muted);
+}
+
+.detail-value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.result-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+}
+
+.result-btn:active {
+  transform: translateY(0);
+}
+
+/* Mode visibility */
+body.flow-mode-active .panels {
+  display: none;
+}
+
+body.flow-mode-active .flow-mode {
+  display: flex;
+}
+
+body.flow-mode-active .classic-only {
+  display: none;
+}
+
+body:not(.flow-mode-active) .flow-mode {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .flow-words {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    padding: 1.5rem;
+  }
+
+  .flow-stats {
+    gap: 2rem;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+  }
+
+  .result-stats {
+    gap: 2rem;
+  }
+
+  .result-stat-big .result-value {
+    font-size: 2.5rem;
+  }
 }

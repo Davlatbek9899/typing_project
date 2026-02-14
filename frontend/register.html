@@ -4,10 +4,165 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register</title>
-  <link rel="stylesheet" href="register.css" />
+  <style>
+    /* UMUMIY STILLAR */
+    .page-center {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url('images/alps.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      font-family: "Lucida Sans", sans-serif;
+    }
+
+    /* REGISTER FORM */
+    #registerPage .form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 350px;
+      background-color: rgba(255, 255, 255, 0.55); /* 0.85 = 85% shaffof emas */
+      backdrop-filter: blur(10px); /* Orqa fonni blur qiladi */
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    #registerPage .title {
+      font-size: 28px;
+      color: royalblue;
+      font-weight: 600;
+      letter-spacing: -1px;
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+      margin: 0 0 10px 0;
+      position: relative;
+    }
+
+    #registerPage .title::before,
+    #registerPage .title::after {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      left: 0px;
+      background-color: royalblue;
+    }
+
+    #registerPage .title::after {
+      width: 18px;
+      height: 18px;
+      animation: pulse 1s linear infinite;
+    }
+
+    #registerPage .message,
+    #registerPage .signin {
+      color: rgba(88, 87, 87, 0.822);
+      font-size: 14px;
+      margin: 0 0 15px 0;
+    }
+
+    #registerPage .signin {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    #registerPage .signin a {
+      color: royalblue;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    #registerPage .flex {
+      display: flex;
+      width: 100%;
+      gap: 6px;
+    }
+
+    #registerPage .form label {
+      position: relative;
+      display: block;
+      width: 100%;
+    }
+
+    #registerPage .form label .input {
+      width: 100%;
+      padding: 10px 10px 20px 10px;
+      outline: 0;
+      border: 1px solid rgba(105, 105, 105, 0.397);
+      border-radius: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+      transition: border-color 0.3s ease;
+    }
+
+    #registerPage .form label .input:focus {
+      border-color: royalblue;
+    }
+
+    #registerPage .form label .input + span {
+      position: absolute;
+      left: 10px;
+      top: 15px;
+      color: grey;
+      font-size: 0.9em;
+      cursor: text;
+      transition: 0.3s ease;
+      pointer-events: none;
+      background: white;
+      padding: 0 5px;
+    }
+
+    #registerPage .form label .input:focus + span,
+    #registerPage .form label .input:valid + span {
+      top: 30px;
+      font-size: 0.7em;
+      font-weight: 600;
+    }
+
+    #registerPage .form label .input:valid + span {
+      color: green;
+    }
+
+    #registerPage .submit {
+      border: none;
+      outline: none;
+      background-color: royalblue;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 5px;
+    }
+
+    #registerPage .submit:hover {
+      background-color: rgb(56, 90, 194);
+      transform: translateY(-1px);
+    }
+
+    @keyframes pulse {
+      from {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+      to {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body class="page-center" id="registerPage">
-
   <!-- From Uiverse.io by Yaya12085 -->
   <form class="form" id="registerForm">
       <p class="title">Register</p>

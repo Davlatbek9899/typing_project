@@ -3,6 +3,8 @@
    ============================================ */
 
 /* Body va sahifani markazlashtirish */
+
+/* Body va sahifani markazlashtirish */
 .page-center {
   margin: 0;
   padding: 0;
@@ -10,7 +12,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: url('images/alps.jpeg'); /* SHU QATORNI QO'SHING! */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }

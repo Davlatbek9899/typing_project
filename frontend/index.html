@@ -46,12 +46,89 @@
             <span id="themeName">Default</span>
           </button>
           
-          <button id="swapBtn" class="btn primary" title="Panel joyini almashtirish">⇄ Swap</button>
+          <button id="modeToggle" class="btn primary" title="Rejimni o'zgartirish">
+            <span id="modeIcon">🎯</span>
+            <span id="modeName">Flow Mode</span>
+          </button>
+          
+          <button id="swapBtn" class="btn ghost classic-only" title="Panel joyini almashtirish">⇄ Swap</button>
         </div>
 
   </header>
 
   <main class="page">
+    
+    <!-- 🎯 FLOW MODE (MonkeyType style) -->
+    <section class="flow-mode hidden" id="flowMode">
+      <!-- Timer selector -->
+      <div class="flow-config">
+        <div class="timer-selector">
+          <button class="timer-btn" data-time="15">15s</button>
+          <button class="timer-btn active" data-time="30">30s</button>
+          <button class="timer-btn" data-time="60">60s</button>
+        </div>
+      </div>
+
+      <!-- Live stats -->
+      <div class="flow-stats">
+        <div class="stat">
+          <div class="stat-value" id="flowWpm">0</div>
+          <div class="stat-label">wpm</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="flowAcc">100%</div>
+          <div class="stat-label">accuracy</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="flowTime">30</div>
+          <div class="stat-label">time</div>
+        </div>
+      </div>
+
+      <!-- Words container -->
+      <div class="flow-words-container">
+        <div class="flow-words" id="flowWords"></div>
+        <input type="text" id="flowInput" class="flow-input" autocomplete="off" autocorrect="off" spellcheck="false">
+      </div>
+
+      <!-- Result screen -->
+      <div class="flow-result hidden" id="flowResult">
+        <h2 class="result-title">Test yakunlandi! 🎉</h2>
+        <div class="result-stats">
+          <div class="result-stat-big">
+            <div class="result-value" id="resultWpm">0</div>
+            <div class="result-label">WPM</div>
+          </div>
+          <div class="result-stat-big">
+            <div class="result-value" id="resultAcc">100%</div>
+            <div class="result-label">Accuracy</div>
+          </div>
+        </div>
+        <div class="result-details">
+          <div class="result-detail">
+            <span class="detail-label">To'g'ri so'zlar:</span>
+            <span class="detail-value" id="resultCorrect">0</span>
+          </div>
+          <div class="result-detail">
+            <span class="detail-label">Xato so'zlar:</span>
+            <span class="detail-value" id="resultWrong">0</span>
+          </div>
+          <div class="result-detail">
+            <span class="detail-label">Vaqt:</span>
+            <span class="detail-value" id="resultTime">30s</span>
+          </div>
+        </div>
+        <button class="result-btn" id="flowRetry">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"></polyline>
+            <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+          </svg>
+          Qayta urinish (Enter)
+        </button>
+      </div>
+    </section>
+
+    <!-- 📋 CLASSIC MODE (Original two-panel style) -->
     <section class="panels" id="panels">
       <!-- LEFT: SOURCE TEXT -->
       <div class="panel card" id="sourcePanel">
